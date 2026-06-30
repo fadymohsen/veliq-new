@@ -5,6 +5,7 @@ import Navbar from "@/components/sections/Navbar";
 import CustomCursor from "@/components/ui/CustomCursor";
 import GlobalBackground from "@/components/ui/GlobalBackground";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import SplashScreen from "@/components/ui/SplashScreen";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} h-full`}>
       <body className="relative bg-black text-white min-h-full antialiased overflow-x-hidden">
+        <SplashScreen />
         <GlobalBackground />
         <CustomCursor />
         <Navbar />
