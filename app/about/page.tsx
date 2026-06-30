@@ -16,7 +16,7 @@ const GREEN  = "rgb(74,222,128)";
 /* ── Data ─────────────────────────────────────────────────────────── */
 const STATS = [
   { value: "4",    label: "Countries",     color: INDIGO  },
-  { value: "30+",  label: "Happy Clients", color: PURPLE  },
+  { value: "15+",  label: "Happy Clients", color: PURPLE  },
   { value: "100%", label: "Satisfaction",  color: TEAL    },
   { value: "4.8×", label: "Avg ROAS",      color: GREEN   },
 ];
@@ -127,11 +127,14 @@ export default function AboutPage() {
               initial={{ y: "100%" }} animate={heroIn ? { y: 0 } : {}}
               transition={{ duration: 0.85, delay: 0.08, ease }}
             >
-              <span style={{ color: INDIGO }}>Your</span>{" "}
-              <span style={{ color: PURPLE }}>Dedicated</span>
+              <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg, rgb(168,85,247), rgb(99,102,241), rgb(45,212,191))" }}>
+                Precision
+              </span>{" "}
+              <span style={{ color: "white" }}>at the</span>
               <br />
-              <span style={{ color: TEAL }}>Backbone</span>{" "}
-              <span style={{ color: PINK }}>Team.</span>
+              <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg, rgb(99,102,241), rgb(45,212,191), rgb(56,189,248))" }}>
+                Speed of Ambition.
+              </span>
             </motion.h1>
           </div>
           <motion.p
