@@ -71,20 +71,6 @@ export default function ServicesPage() {
                 </p>
               </div>
 
-              {/* Highlights */}
-              <div className="grid grid-cols-2 gap-2">
-                {service.highlights.slice(0, 2).map((h) => (
-                  <div key={h.label} className="flex flex-col gap-0.5">
-                    <span className="text-white" style={{ fontSize: "18px", fontWeight: 700, letterSpacing: "-0.04em" }}>
-                      {h.value}
-                    </span>
-                    <span className="text-[rgb(124,124,124)]" style={{ fontSize: "11px", fontWeight: 500 }}>
-                      {h.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
               <span
                 className="self-start text-white group-hover:gap-2 transition-all"
                 style={{ fontSize: "13px", fontWeight: 600, color: "rgb(99,102,241)" }}
