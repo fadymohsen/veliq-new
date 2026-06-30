@@ -8,9 +8,16 @@ const INDIGO = "rgb(99,102,241)";
 const MENU_LINKS = [
   { label: "About",    href: "/about" },
   { label: "Services", href: "/services" },
+  { label: "Pricing",  href: "/pricing" },
   { label: "Projects", href: "/projects" },
   { label: "Blog",     href: "/blog" },
   { label: "Contact",  href: "/contact" },
+];
+
+const LEGAL_LINKS = [
+  { label: "Privacy Policy",      href: "/legal/privacy" },
+  { label: "Terms & Conditions",  href: "/legal/terms" },
+  { label: "Refund Policy",       href: "/legal/refund" },
 ];
 
 const SOCIAL_LINKS = [
@@ -115,6 +122,25 @@ export default function Footer() {
             </span>
             <ul className="flex flex-col gap-[10px]">
               {MENU_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    style={{ fontSize: "14px", fontWeight: 500, color: "rgb(100,100,100)" }}
+                    className="hover:text-white transition-colors"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.22)" }}>
+              Legal
+            </span>
+            <ul className="flex flex-col gap-[10px]">
+              {LEGAL_LINKS.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
