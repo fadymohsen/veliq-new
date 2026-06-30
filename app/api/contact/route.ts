@@ -29,9 +29,8 @@ export async function POST(req: Request) {
       minute: "2-digit",
     });
 
-    const [adminResult, clientResult] = await Promise.all([
-      // Email to VELIQ admin
-      resend.emails.send({
+    // Send admin email first (required)
+    const adminResult = await resend.emails.send({
         from: `VELIQ <${SENDER_EMAIL}>`,
         to: [ADMIN_EMAIL],
         replyTo: email.trim(),
@@ -102,10 +101,15 @@ export async function POST(req: Request) {
       </body>
       </html>
         `,
-      }),
+    });
 
-      // Confirmation email to client
-      resend.emails.send({
+    if (adminResult.error) {
+      throw new Error(`Failed to send admin email: ${adminResult.error.message}`);
+    }
+
+    // Confirmation email to client (best effort — don't fail the request if this errors)
+    try {
+      await resend.emails.send({
         from: `VELIQ <${SENDER_EMAIL}>`,
         to: [email.trim()],
         replyTo: ADMIN_EMAIL,
@@ -192,14 +196,9 @@ export async function POST(req: Request) {
       </body>
       </html>
         `,
-      }),
-    ]);
-
-    if (adminResult.error) {
-      throw new Error(`Failed to send admin email: ${adminResult.error.message}`);
-    }
-    if (clientResult.error) {
-      throw new Error(`Failed to send client email: ${clientResult.error.message}`);
+      });
+    } catch (clientErr) {
+      console.warn("Client confirmation email failed (non-blocking):", clientErr);
     }
 
     return NextResponse.json({ success: true });

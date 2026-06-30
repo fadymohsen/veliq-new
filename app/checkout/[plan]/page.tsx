@@ -216,10 +216,28 @@ export default function CheckoutPage({ params }: { params: Promise<{ plan: strin
     setSubmitting(true);
     setErrors({});
 
-    // Simulate submission — replace with actual API call
-    await new Promise((r) => setTimeout(r, 1500));
-    setSubmitted(true);
-    setSubmitting(false);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          company: form.company.trim() || null,
+          phone: `${selectedCountry.code} ${form.phone.trim()}`,
+          email: form.email.trim(),
+          notes: form.notes.trim() || null,
+          plan: planInfo.name,
+          planDetails: `${planInfo.category} — ${planInfo.price} ${planInfo.suffix}`,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Something went wrong.");
+      setSubmitted(true);
+    } catch (err) {
+      setErrors({ submit: err instanceof Error ? err.message : "Something went wrong. Please try again." });
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (

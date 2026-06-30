@@ -53,6 +53,10 @@ export default function ContactPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Something went wrong.");
       setSent(true);
+      setTimeout(() => {
+        setSent(false);
+        setForm({ name: "", email: "", message: "" });
+      }, 5000);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     } finally {
