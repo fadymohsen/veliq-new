@@ -1,7 +1,7 @@
 import Footer from "@/components/sections/Footer";
 
 export const metadata = {
-  title: "Studio — Mattter®",
+  title: "Studio — VELIQ",
   description: "Learn about our design studio, process, and team.",
 };
 

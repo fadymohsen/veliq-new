@@ -15,15 +15,34 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "VELIQ — Software & Marketing Solutions",
+  metadataBase: new URL("https://veliq.co"),
+  title: {
+    default: "VELIQ — Software & Marketing Solutions",
+    template: "%s — VELIQ",
+  },
   description:
-    "VELIQ is your dedicated backbone team. We deliver web development, mobile apps, SEO, digital marketing, data analytics, and brand strategy across Egypt, Saudi Arabia, UAE, and the US.",
-  keywords: ["web development", "digital marketing", "SEO", "mobile apps", "brand strategy", "data analytics", "software agency", "Egypt", "Saudi Arabia"],
+    "Precision at the Speed of Ambition. VELIQ delivers web development, SEO, and website support across Egypt, Saudi Arabia, UAE, and the US.",
+  keywords: ["web development", "SEO", "website support", "software agency", "Egypt", "Saudi Arabia", "UAE", "digital agency"],
+  authors: [{ name: "VELIQ", url: "https://veliq.co" }],
   openGraph: {
     title: "VELIQ — Software & Marketing Solutions",
-    description:
-      "Your dedicated backbone team. Every channel. One direction.",
+    description: "Precision at the Speed of Ambition. Web development, SEO, and website support.",
+    url: "https://veliq.co",
+    siteName: "VELIQ",
+    locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "VELIQ — Software & Marketing Solutions",
+    description: "Precision at the Speed of Ambition. Web development, SEO, and website support.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://veliq.co",
   },
 };
 

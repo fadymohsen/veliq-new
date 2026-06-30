@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const project = getProject(slug);
   if (!project) return {};
   return {
-    title: `${project.title} — Mattter®`,
+    title: `${project.title} — VELIQ`,
     description: project.description,
   };
 }
@@ -126,7 +126,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         {[project.image1, project.image2].map((src, i) => (
           <div key={i} className="flex-1" style={{ aspectRatio: "1.246" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={src} alt="" className="w-full h-full object-cover" style={{ borderRadius: "25px" }} />
+            <img src={src} alt={`${project.title} showcase ${i + 1}`} className="w-full h-full object-cover" style={{ borderRadius: "25px" }} />
           </div>
         ))}
       </div>
@@ -139,7 +139,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         {project.gallery.map((src, i) => (
           <div key={i} className="w-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={src} alt="" className="w-full h-auto object-cover" style={{ borderRadius: "25px" }} />
+            <img src={src} alt={`${project.title} gallery ${i + 1}`} className="w-full h-auto object-cover" style={{ borderRadius: "25px" }} />
           </div>
         ))}
       </section>
