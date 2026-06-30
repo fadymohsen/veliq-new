@@ -196,6 +196,23 @@ export const PROJECTS: Project[] = [
     image2: SHARED_IMAGE_2,
     gallery: SHARED_GALLERY,
   },
+  {
+    slug: "brandlab",
+    title: "Brandlab",
+    category: "Website Development",
+    client: "Brandlab",
+    year: "2026",
+    url: "https://www.brandlabagency.co",
+    description: "A bilingual website for a video production agency that transforms raw footage into cinematic brand stories for startups and content creators.",
+    preview: "/uploads/brandlab-screen.png",
+    problemHeading: "A video editing agency with 200+ delivered projects had no professional web presence to match the quality of their work.",
+    problemBody: "Brandlab was producing exceptional video content — editing, motion graphics, sound design, and brand films — but relied entirely on word-of-mouth and social media DMs. Without a website, potential clients couldn't explore their portfolio, understand their services, or book a call. They were invisible to the international market they wanted to reach.",
+    solutionHeading: "We built a cinematic bilingual website that showcases their craft and converts visitors into booked calls.",
+    solutionBody: "We designed a dark, visually immersive website with embedded video showcases, a structured services breakdown, client testimonials, and a pricing page with clear CTAs. The bilingual (Arabic/English) platform opened Brandlab to regional and international clients, with a streamlined booking flow that increased inbound inquiries from day one.",
+    image1: SHARED_IMAGE_1,
+    image2: SHARED_IMAGE_2,
+    gallery: SHARED_GALLERY,
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {
