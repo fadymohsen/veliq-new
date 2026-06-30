@@ -6,6 +6,7 @@ export type Project = {
   year: string;
   description: string;
   preview: string;
+  previewMobile?: string;
   url: string;
   noEmbed?: boolean;
   problemHeading: string;
@@ -88,8 +89,10 @@ export const PROJECTS: Project[] = [
     client: "Fanous Clinic",
     year: "2025",
     url: "https://www.fanousclinic.com",
+    noEmbed: true,
     description: "A patient-first clinic website with local SEO that moved them from invisible to first-page Google results.",
     preview: "/uploads/fanous-clinic-screen.jpg",
+    previewMobile: "/uploads/fanous-clinic-mobile.jpg",
     problemHeading: "A specialist clinic was losing patients to competitors despite offering superior medical care.",
     problemBody: "Fanous Clinic's doctors were among the most qualified in their specialty — but their website was outdated, had no online booking, and wasn't appearing in local search results. Patients actively searching for their specialty were finding competitors first.",
     solutionHeading: "We rebuilt their digital presence with patient-first design and a local SEO strategy that put them on the first page of Google.",
@@ -214,8 +217,10 @@ export const PROJECTS: Project[] = [
     client: "Window Adv",
     year: "2024",
     url: "https://windowadv.com",
+    noEmbed: true,
     description: "A digital media platform that brought an outdoor advertising portfolio online and opened a new digital-sourced revenue channel.",
     preview: "/uploads/window-adv-screen.jpg",
+    previewMobile: "/uploads/window-adv-mobile.jpg",
     problemHeading: "An outdoor advertising agency had no digital strategy for a business that was entirely offline.",
     problemBody: "Window Adv managed a substantial portfolio of billboards and outdoor placements but had zero digital infrastructure. There was no online portfolio, no digital inquiry system, and no way for media buyers to evaluate inventory remotely — a critical gap in an increasingly digital-first media market.",
     solutionHeading: "We built a digital media platform that brought their entire outdoor inventory online for remote evaluation and booking.",

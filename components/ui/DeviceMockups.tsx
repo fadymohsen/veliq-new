@@ -6,7 +6,7 @@ function rr(x: number, y: number, w: number, h: number, r: number) {
 }
 
 /* ─── iPhone 15 Pro Max ───────────────────────────────────────────────────── */
-function PhoneMockup({ url, previewImage }: { url: string; previewImage?: string }) {
+function PhoneMockup({ url, previewImage, previewImageMobile }: { url: string; previewImage?: string; previewImageMobile?: string }) {
   // SVG units == pixels (1:1) so the frame aligns with the iframe exactly.
   const VB_W = 312, VB_H = 662;
   // Body: x6 y6 w300 h650 r52 · Screen hole: x17 y17 w278 h628 r42
@@ -49,7 +49,14 @@ function PhoneMockup({ url, previewImage }: { url: string; previewImage?: string
 
         {/* Live site — starts below the notch */}
         <div style={{ width: SCR_W, height: SITE_H, overflow: "hidden" }}>
-          {previewImage ? (
+          {previewImageMobile ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={previewImageMobile}
+              alt="Mobile preview"
+              style={{ width: SCR_W, height: SITE_H, objectFit: "cover", objectPosition: "top", display: "block" }}
+            />
+          ) : previewImage ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={previewImage}
@@ -217,7 +224,7 @@ function LaptopMockup({ url, previewImage }: { url: string; previewImage?: strin
 }
 
 /* ─── Section ─────────────────────────────────────────────────────────────── */
-export default function DeviceMockups({ url, title, previewImage }: { url: string; title: string; previewImage?: string }) {
+export default function DeviceMockups({ url, title, previewImage, previewImageMobile }: { url: string; title: string; previewImage?: string; previewImageMobile?: string }) {
   return (
     <section style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
 
@@ -238,7 +245,7 @@ export default function DeviceMockups({ url, title, previewImage }: { url: strin
         <div className="hidden md:block" style={{ flexShrink: 0 }}>
           <LaptopMockup url={url} previewImage={previewImage} />
         </div>
-        <PhoneMockup url={url} previewImage={previewImage} />
+        <PhoneMockup url={url} previewImage={previewImage} previewImageMobile={previewImageMobile} />
       </div>
 
       <p style={{ fontSize: 11, color: "rgba(255,255,255,0.18)", letterSpacing: "0.02em" }}>
