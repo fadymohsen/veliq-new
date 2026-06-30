@@ -32,13 +32,6 @@ function PhoneMockup({ url, previewImage }: { url: string; previewImage?: string
         }}>
           <span style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.2px", marginTop: 6 }}>9:41</span>
           <div style={{ display: "flex", alignItems: "center", gap: 5, marginTop: 6 }}>
-            {/* Cellular */}
-            <svg width="17" height="11" viewBox="0 0 17 11" fill="#fff" aria-hidden>
-              <rect x="0" y="7" width="3" height="4" rx="1" />
-              <rect x="4.5" y="5" width="3" height="6" rx="1" />
-              <rect x="9" y="2.5" width="3" height="8.5" rx="1" />
-              <rect x="13.5" y="0" width="3" height="11" rx="1" />
-            </svg>
             {/* Wi-Fi */}
             <svg width="16" height="12" viewBox="0 0 16 12" fill="#fff" aria-hidden>
               <path d="M8 2C5 2 2.4 3.2 0.6 5.1L2 6.5C3.5 5 5.6 4 8 4s4.5 1 6 2.5l1.4-1.4C13.6 3.2 11 2 8 2z" />

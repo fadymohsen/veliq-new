@@ -17,14 +17,6 @@ export type Project = {
   gallery: string[];
 };
 
-const SHARED_IMAGE_1 = "https://framerusercontent.com/images/2Qh9eAFoBqCEd8nMElKvxwik.png";
-const SHARED_IMAGE_2 = "https://framerusercontent.com/images/dnqyaHifcSkTXY7tJV8dRhmN4s.png";
-const SHARED_GALLERY = [
-  "https://framerusercontent.com/images/38Q7SfUj8cODnwWGuPx1KVkNajI.png",
-  "https://framerusercontent.com/images/Qpl7yATIp6rN9XXJRiwAUZpxdRg.png",
-  "https://framerusercontent.com/images/z7uBX03kXtjDZDYu5DZGH8ZNhU.png",
-];
-
 export const PROJECTS: Project[] = [
   {
     slug: "alfa-transport",
@@ -60,9 +52,13 @@ export const PROJECTS: Project[] = [
     problemBody: "Yamin Estate was launching a premium residential development but their digital presence couldn't convey the quality of the properties. Prospective buyers were visiting competitor sites with immersive virtual tours and 3D renders, and choosing them without ever booking an in-person visit with Yamin.",
     solutionHeading: "We built an immersive property platform that turns browsers into committed buyers before they ever visit a showroom.",
     solutionBody: "We created a premium real estate website with a unit explorer, floor plan viewer, and automated lead qualification flow. The launch campaign generated 450 qualified leads in 30 days, converting 12% to sales consultations — their best launch performance to date.",
-    image1: SHARED_IMAGE_1,
-    image2: SHARED_IMAGE_2,
-    gallery: SHARED_GALLERY,
+    image1: "/uploads/yamin-estate-1.png",
+    image2: "/uploads/yamin-estate-2.png",
+    gallery: [
+      "/uploads/yamin-estate-3.png",
+      "/uploads/yamin-estate-4.png",
+      "/uploads/yamin-estate-5.png",
+    ],
   },
   {
     slug: "saudi-hayat",
@@ -98,9 +94,13 @@ export const PROJECTS: Project[] = [
     problemBody: "Fanous Clinic's doctors were among the most qualified in their specialty — but their website was outdated, had no online booking, and wasn't appearing in local search results. Patients actively searching for their specialty were finding competitors first.",
     solutionHeading: "We rebuilt their digital presence with patient-first design and a local SEO strategy that put them on the first page of Google.",
     solutionBody: "We redesigned the website with streamlined online booking, detailed doctor profiles, and service pages optimized for high-intent local searches. Within three months, appointment bookings increased 75%, with a 40% reduction in phone inquiries as patients began self-serving online.",
-    image1: SHARED_IMAGE_1,
-    image2: SHARED_IMAGE_2,
-    gallery: SHARED_GALLERY,
+    image1: "/uploads/fanous-clinic-1.png",
+    image2: "/uploads/fanous-clinic-2.png",
+    gallery: [
+      "/uploads/fanous-clinic-3.png",
+      "/uploads/fanous-clinic-4.png",
+      "/uploads/fanous-clinic-5.png",
+    ],
   },
   {
     slug: "initio",
@@ -115,9 +115,13 @@ export const PROJECTS: Project[] = [
     problemBody: "Initio's platform solved a real enterprise problem, but their website communicated none of that credibility. Investors, potential enterprise clients, and technical hires all landed on a basic landing page that failed to convey the depth of the product or the quality of the founding team.",
     solutionHeading: "We built an enterprise-grade web presence that matched the sophistication of their actual product.",
     solutionBody: "We designed a product-led website with clear use-case positioning, an interactive demo flow, and investor-ready trust signals. The new site played a key role in closing their next funding round and landing two enterprise contracts within 60 days of launch.",
-    image1: SHARED_IMAGE_1,
-    image2: SHARED_IMAGE_2,
-    gallery: SHARED_GALLERY,
+    image1: "/uploads/initio-1.png",
+    image2: "/uploads/initio-2.png",
+    gallery: [
+      "/uploads/initio-3.png",
+      "/uploads/initio-4.png",
+      "/uploads/initio-5.png",
+    ],
   },
   {
     slug: "redbone-gym",
@@ -132,9 +136,13 @@ export const PROJECTS: Project[] = [
     problemBody: "RedBone Gym had top-tier equipment, certified trainers, and real transformation results — but their digital presence made them look like any other local gym. Their website was outdated, had no booking system, and failed to communicate their premium positioning.",
     solutionHeading: "We built a results-focused brand and digital experience that justified premium pricing and drove membership growth.",
     solutionBody: "We created a bold visual identity, a high-converting membership landing page with transformation testimonials, and a streamlined online trial booking flow. New member sign-ups increased 90% in the first quarter post-launch.",
-    image1: SHARED_IMAGE_1,
-    image2: SHARED_IMAGE_2,
-    gallery: SHARED_GALLERY,
+    image1: "/uploads/redbone-gym-1.png",
+    image2: "/uploads/redbone-gym-2.png",
+    gallery: [
+      "/uploads/redbone-gym-3.png",
+      "/uploads/redbone-gym-4.png",
+      "/uploads/redbone-gym-5.png",
+    ],
   },
   {
     slug: "captain-maged",
@@ -149,9 +157,13 @@ export const PROJECTS: Project[] = [
     problemBody: "Captain Maged relied entirely on word-of-mouth referrals for his private sea tours and diving charters. Without a professional web presence, he couldn't reach international travelers or corporate groups willing to pay premium rates.",
     solutionHeading: "We built a personal brand platform that positioned him as the authority on private maritime experiences in the Red Sea.",
     solutionBody: "We created a professional booking website with credentials showcase, multilingual support, and a seamless reservation system. His bookings increased 240% in the first season, with a significant shift toward higher-ticket corporate clients.",
-    image1: SHARED_IMAGE_1,
-    image2: SHARED_IMAGE_2,
-    gallery: SHARED_GALLERY,
+    image1: "/uploads/captain-maged-1.png",
+    image2: "/uploads/captain-maged-2.png",
+    gallery: [
+      "/uploads/captain-maged-3.png",
+      "/uploads/captain-maged-4.png",
+      "/uploads/captain-maged-5.png",
+    ],
   },
   {
     slug: "coach-batool",
@@ -166,9 +178,13 @@ export const PROJECTS: Project[] = [
     problemBody: "Coach Batool's coaching results were exceptional — but her online presence didn't reflect that. A basic Instagram page and a generic landing page meant she was competing on price rather than value, attracting clients she had to over-serve for minimal return.",
     solutionHeading: "We rebuilt her brand identity and website to command premium pricing and attract self-motivated, high-value clients.",
     solutionBody: "We designed a high-converting landing page with transformation case studies, a clear program value ladder, and an application-based enrollment process that filtered for serious clients. Her average client value increased 3× while her lead volume remained consistent.",
-    image1: SHARED_IMAGE_1,
-    image2: SHARED_IMAGE_2,
-    gallery: SHARED_GALLERY,
+    image1: "/uploads/coach-batool-1.png",
+    image2: "/uploads/coach-batool-2.png",
+    gallery: [
+      "/uploads/coach-batool-3.png",
+      "/uploads/coach-batool-4.png",
+      "/uploads/coach-batool-5.png",
+    ],
   },
   {
     slug: "coach-shiko",
@@ -183,9 +199,13 @@ export const PROJECTS: Project[] = [
     problemBody: "Despite years of results and glowing client reviews, Coach Shiko's website had no SEO foundation, no clear positioning, and no mechanism to capture interested visitors. All leads came from expensive paid referrals and one-to-one networking events.",
     solutionHeading: "We rebuilt his digital presence around his core methodology and built an SEO-driven lead generation system.",
     solutionBody: "We crafted a positioning-first website built around his proprietary coaching framework, supported by keyword-optimized content and a free resource funnel. Organic inquiries grew from zero to 40+ per month within five months of launch.",
-    image1: SHARED_IMAGE_1,
-    image2: SHARED_IMAGE_2,
-    gallery: SHARED_GALLERY,
+    image1: "/uploads/coach-shiko-1.png",
+    image2: "/uploads/coach-shiko-2.png",
+    gallery: [
+      "/uploads/coach-shiko-3.png",
+      "/uploads/coach-shiko-4.png",
+      "/uploads/coach-shiko-5.png",
+    ],
   },
   {
     slug: "window-adv",
@@ -200,9 +220,13 @@ export const PROJECTS: Project[] = [
     problemBody: "Window Adv managed a substantial portfolio of billboards and outdoor placements but had zero digital infrastructure. There was no online portfolio, no digital inquiry system, and no way for media buyers to evaluate inventory remotely — a critical gap in an increasingly digital-first media market.",
     solutionHeading: "We built a digital media platform that brought their entire outdoor inventory online for remote evaluation and booking.",
     solutionBody: "We designed a media buyer-focused platform with an interactive location map, audience data per placement, and a streamlined campaign inquiry flow. Digital-sourced inquiries became their fastest-growing revenue channel within six months of launch.",
-    image1: SHARED_IMAGE_1,
-    image2: SHARED_IMAGE_2,
-    gallery: SHARED_GALLERY,
+    image1: "/uploads/window-adv-1.png",
+    image2: "/uploads/window-adv-2.png",
+    gallery: [
+      "/uploads/window-adv-3.png",
+      "/uploads/window-adv-4.png",
+      "/uploads/window-adv-5.png",
+    ],
   },
   {
     slug: "enjazcare",
@@ -217,9 +241,13 @@ export const PROJECTS: Project[] = [
     problemBody: "Enjaz Care offered a comprehensive range of services — pest control, deep cleaning, furniture moving, disinfection, and maintenance — but had no way for customers to discover, compare, or book services online. Inquiries came only through phone calls and WhatsApp, limiting their reach and making it impossible to scale beyond word-of-mouth referrals in a competitive Saudi market.",
     solutionHeading: "We built a bilingual service platform with online booking and a pricing calculator that turned visitors into booked appointments.",
     solutionBody: "We designed a professional Arabic-first website with English support, featuring a built-in pricing calculator, structured service pages for each category, an online booking system, and WhatsApp integration. The platform now serves residential and commercial clients across Riyadh — from homes to hospitals, factories, and hotels — with a streamlined digital experience that matches the quality of their on-site work.",
-    image1: SHARED_IMAGE_1,
-    image2: SHARED_IMAGE_2,
-    gallery: SHARED_GALLERY,
+    image1: "/uploads/enjazcare-1.png",
+    image2: "/uploads/enjazcare-2.png",
+    gallery: [
+      "/uploads/enjazcare-3.png",
+      "/uploads/enjazcare-4.png",
+      "/uploads/enjazcare-5.png",
+    ],
   },
   {
     slug: "brandlab",
@@ -234,9 +262,13 @@ export const PROJECTS: Project[] = [
     problemBody: "Brandlab was producing exceptional video content — editing, motion graphics, sound design, and brand films — but relied entirely on word-of-mouth and social media DMs. Without a website, potential clients couldn't explore their portfolio, understand their services, or book a call. They were invisible to the international market they wanted to reach.",
     solutionHeading: "We built a cinematic bilingual website that showcases their craft and converts visitors into booked calls.",
     solutionBody: "We designed a dark, visually immersive website with embedded video showcases, a structured services breakdown, client testimonials, and a pricing page with clear CTAs. The bilingual (Arabic/English) platform opened Brandlab to regional and international clients, with a streamlined booking flow that increased inbound inquiries from day one.",
-    image1: SHARED_IMAGE_1,
-    image2: SHARED_IMAGE_2,
-    gallery: SHARED_GALLERY,
+    image1: "/uploads/brandlab-1.png",
+    image2: "/uploads/brandlab-2.png",
+    gallery: [
+      "/uploads/brandlab-3.png",
+      "/uploads/brandlab-4.png",
+      "/uploads/brandlab-5.png",
+    ],
   },
 ];
 
