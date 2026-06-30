@@ -11,7 +11,6 @@ const NAV_LINKS = [
   { label: "Services", href: "/services" },
   { label: "Projects", href: "/projects", count: "10" },
   { label: "Pricing",  href: "/pricing"  },
-  { label: "Blog",     href: "/blog"     },
 ];
 
 function DotsIcon() {
@@ -48,6 +47,12 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => { setMobileOpen(false); }, [pathname]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
 
   const expanded = !compact || hovered;
 
@@ -182,49 +187,86 @@ export default function Navbar() {
         </motion.nav>
       </header>
 
-      {/* Mobile dropdown */}
+      {/* Full-page mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             key="mobile-menu"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-20 left-4 right-4 z-40 rounded-[20px] overflow-hidden"
-            style={{
-              backgroundColor: "rgba(18,18,18,0.97)",
-              backdropFilter: "blur(18px)",
-              border: "1px solid rgba(255,255,255,0.08)",
-            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 md:hidden flex flex-col"
+            style={{ backgroundColor: "rgb(8,8,8)" }}
           >
-            <ul className="flex flex-col gap-1 p-4">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
+            {/* Spacer for navbar */}
+            <div style={{ height: 80 }} />
+
+            {/* Links */}
+            <nav className="flex-1 flex flex-col justify-center px-8 gap-2">
+              {NAV_LINKS.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: i * 0.05 }}
+                >
                   <Link
                     href={link.href}
-                    className="flex items-center gap-2 text-white rounded-xl hover:bg-white/10 transition-colors"
-                    style={{ fontSize: "15px", fontWeight: 500, padding: "12px 16px" }}
+                    className={`flex items-center gap-3 py-4 transition-colors ${
+                      pathname === link.href ? "text-white" : "text-[rgb(120,120,120)] hover:text-white"
+                    }`}
+                    style={{
+                      fontSize: "clamp(28px, 7vw, 42px)",
+                      fontWeight: 600,
+                      letterSpacing: "-0.04em",
+                      borderBottom: "1px solid rgb(22,22,22)",
+                    }}
                   >
                     {link.label}
                     {link.count && (
-                      <span className="text-[rgb(99,102,241)]" style={{ fontSize: "11px", fontWeight: 700 }}>
-                        ({link.count})
-                      </span>
+                      <sup style={{ fontSize: "14px", fontWeight: 700, color: "rgb(99,102,241)" }}>
+                        {link.count}
+                      </sup>
                     )}
                   </Link>
-                </li>
+                </motion.div>
               ))}
-              <li className="pt-2">
+
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: NAV_LINKS.length * 0.05 }}
+                className="mt-6"
+              >
                 <Link
                   href="/contact"
-                  className="flex items-center justify-center rounded-full text-white font-semibold w-full"
-                  style={{ backgroundColor: "rgb(99,102,241)", fontSize: "14px", padding: "12px 0" }}
+                  className="flex items-center justify-center rounded-full text-white font-semibold w-full hover:brightness-110 transition-all"
+                  style={{ backgroundColor: "rgb(99,102,241)", fontSize: "16px", fontWeight: 600, padding: "16px 0" }}
                 >
                   Contact Us
                 </Link>
-              </li>
-            </ul>
+              </motion.div>
+            </nav>
+
+            {/* Bottom info */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3, delay: 0.35 }}
+              className="px-8 pb-10 flex items-center justify-between"
+            >
+              <a
+                href="mailto:admin@veliq.co"
+                style={{ fontSize: "13px", fontWeight: 500, color: "rgb(99,102,241)" }}
+                className="hover:opacity-75 transition-opacity"
+              >
+                admin@veliq.co
+              </a>
+              <span style={{ fontSize: "12px", color: "rgb(50,50,50)" }}>
+                &copy; {new Date().getFullYear()} VELIQ
+              </span>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
