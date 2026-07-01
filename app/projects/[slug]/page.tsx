@@ -4,6 +4,7 @@ import Button from "@/components/ui/Button";
 import ProjectCard from "@/components/ui/ProjectCard";
 import DeviceMockups from "@/components/ui/DeviceMockups";
 import { PROJECTS, getProject, getOtherProjects } from "@/lib/projects";
+import { JsonLd, breadcrumbSchema } from "@/components/seo/JsonLd";
 
 export function generateStaticParams() {
   return PROJECTS.map((p) => ({ slug: p.slug }));
@@ -16,6 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${project.title} — VELIQ`,
     description: project.description,
+    alternates: { canonical: `https://veliq.co/projects/${slug}` },
   };
 }
 
@@ -97,6 +99,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="bg-black min-h-screen flex flex-col items-center" style={{ padding: "0 24px 0" }}>
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "https://veliq.co" },
+        { name: "Projects", url: "https://veliq.co/projects" },
+        { name: project.title, url: `https://veliq.co/projects/${project.slug}` },
+      ])} />
 
       {/* ── Intro ── */}
       <section className="w-full flex flex-col items-center gap-10" style={{ paddingTop: "94px" }}>

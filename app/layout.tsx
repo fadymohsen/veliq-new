@@ -6,6 +6,7 @@ import CustomCursor from "@/components/ui/CustomCursor";
 import GlobalBackground from "@/components/ui/GlobalBackground";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import SplashScreen from "@/components/ui/SplashScreen";
+import { JsonLd, organizationSchema, localBusinessSchema } from "@/components/seo/JsonLd";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -51,6 +52,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full`}>
+      <head>
+        <JsonLd data={organizationSchema} />
+        <JsonLd data={localBusinessSchema} />
+      </head>
       <body className="relative bg-black text-white min-h-full antialiased overflow-x-hidden">
         <SplashScreen />
         <GlobalBackground />

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Footer from "@/components/sections/Footer";
 import Link from "next/link";
 import { SERVICES, getService } from "@/lib/services";
+import { JsonLd, serviceSchema, faqSchema, breadcrumbSchema } from "@/components/seo/JsonLd";
 
 const ICONS: Record<string, React.ReactNode> = {
   "website-development": (
@@ -50,6 +51,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="bg-black min-h-screen pt-16">
+      <JsonLd data={serviceSchema(service)} />
+      <JsonLd data={faqSchema(service.whyFaq.map((f) => ({ q: `WHY: ${f.q}`, a: f.a })))} />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "https://veliq.co" },
+        { name: "Services", url: "https://veliq.co/services" },
+        { name: service.title, url: `https://veliq.co/services/${service.slug}` },
+      ])} />
       <article className="max-w-[1200px] mx-auto section-padding flex flex-col gap-20">
 
         {/* Hero */}

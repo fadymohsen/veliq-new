@@ -1,6 +1,23 @@
 import { notFound } from "next/navigation";
 import Footer from "@/components/sections/Footer";
+import Link from "next/link";
 import { BLOG_POSTS, getBlogPost } from "@/lib/blog";
+import { JsonLd, articleSchema, breadcrumbSchema } from "@/components/seo/JsonLd";
+
+function renderLinks(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, i) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (match) {
+      return (
+        <Link key={i} href={match[2]} className="text-[rgb(99,102,241)] hover:underline transition-colors">
+          {match[1]}
+        </Link>
+      );
+    }
+    return part;
+  });
+}
 
 export function generateStaticParams() {
   return BLOG_POSTS.map((p) => ({ slug: p.slug }));
@@ -13,6 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${post.title} — VELIQ`,
     description: post.excerpt,
+    alternates: { canonical: `https://veliq.co/blog/${slug}` },
   };
 }
 
@@ -23,6 +41,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <main className="bg-black min-h-screen pt-16">
+      <JsonLd data={articleSchema(post)} />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "https://veliq.co" },
+        { name: "Blog", url: "https://veliq.co/blog" },
+        { name: post.title, url: `https://veliq.co/blog/${post.slug}` },
+      ])} />
       <article className="section-padding max-w-[760px] mx-auto flex flex-col gap-10">
 
         {/* Header */}
@@ -76,7 +100,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 className="text-[rgb(201,201,201)] leading-relaxed"
                 style={{ fontSize: "17px", fontWeight: 400, letterSpacing: "-0.01em" }}
               >
-                {block}
+                {renderLinks(block)}
               </p>
             );
           })}
