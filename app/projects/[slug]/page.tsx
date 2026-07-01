@@ -110,6 +110,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <MetaPill label="Client" value={project.client} />
             <MetaPill label="Year" value={project.year} />
           </div>
+
+          <Button
+            label="Visit Website"
+            href={project.url}
+            variant="primary"
+            openInNewTab
+            className="mt-2"
+          />
         </div>
 
         {/* ── Device mockups ── */}
@@ -148,6 +156,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
         ))}
       </section>
+
+      <div className="w-full flex justify-center" style={{ paddingTop: "60px" }}>
+        <Button label="Visit Website" href={project.url} variant="primary" openInNewTab />
+      </div>
 
       {/* ── Next project ── */}
       <section className="w-full max-w-[1200px] flex flex-col gap-20" style={{ padding: "100px 0" }}>
